@@ -1,0 +1,255 @@
+{
+  "id": "36c71577-919e-45a5-8fe2-01d55761dc4b",
+  "revision": 0,
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "CodexImageGenerate",
+      "pos": [
+        520,
+        40
+      ],
+      "size": [
+        420,
+        260
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pose_image",
+          "name": "pose_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "STRING",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CodexImageGenerate"
+      },
+      "widgets_values": [
+        "A full-body digital illustration of a cheerful anthropomorphic red fox mascot with vibrant orange and white fur, wearing a navy blue hoodie with a gear-and-star emblem, dark jeans, white sneakers, and round black-framed glasses. The fox is in a bright, modern creative studio. Its body position, stance, arm and leg placement must match the attached pose reference exactly — do not invent a different pose. The style is a polished 3D render with soft studio lighting, high detail, and a warm, inviting color palette.",
+        "9:16",
+        "gpt-5.5"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "SaveImage",
+      "pos": [
+        1000,
+        40
+      ],
+      "size": [
+        360,
+        300
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "mascot-codex"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "OpenPoseStudio",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        420,
+        260
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pose_keypoint",
+          "name": "pose_keypoint",
+          "shape": 7,
+          "type": "POSE_KEYPOINT",
+          "link": null
+        },
+        {
+          "localized_name": "areas",
+          "name": "areas",
+          "shape": 7,
+          "type": "CONDITIONING_AREAS",
+          "link": null
+        },
+        {
+          "localized_name": "Pose JSON",
+          "name": "pose_json",
+          "type": "STRING",
+          "widget": {
+            "name": "pose_json"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "render body",
+          "name": "render_body",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "render_body"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "render hands",
+          "name": "render_hand",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "render_hand"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "render face",
+          "name": "render_face",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "render_face"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        },
+        {
+          "localized_name": "JSON",
+          "name": "JSON",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        },
+        {
+          "localized_name": "KPS",
+          "name": "KPS",
+          "type": "POSE_KEYPOINT",
+          "slot_index": 2,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OpenPoseStudio",
+        "savedPose": "{\"canvas_width\":512,\"canvas_height\":768,\"people\":[{\"pose_keypoints_2d\":[141,197,1,182,250,1,134,266,1,88,306,1,49,326,1,229,235,1,300,187,1,384,156,1,216,420,1,171,546,1,211,676,1,283,399,1,313,536,1,399,571,1,125,190,1,155,184,1,0,0,0,187,192,1]}]}"
+      },
+      "widgets_values": [
+        "{\"canvas_width\":512,\"canvas_height\":768,\"people\":[{\"pose_keypoints_2d\":[141,197,1,182,250,1,134,266,1,88,306,1,49,326,1,229,235,1,300,187,1,384,156,1,216,420,1,171,546,1,211,676,1,283,399,1,313,536,1,399,571,1,125,190,1,155,184,1,0,0,0,187,192,1]}]}",
+        true,
+        true,
+        true,
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8090919597710247,
+      "offset": [
+        412.9800651866472,
+        243.34372661600315
+      ]
+    }
+  },
+  "version": 0.4
+}
